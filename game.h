@@ -12,6 +12,8 @@ class Game
   bool initialize();
   void run();
 
+  void addActor(Actor* actor);
+
   Game(const Game&) = delete;
   Game(Game&&) = delete;
   Game& operator=(const Game&) = delete;
@@ -23,9 +25,11 @@ class Game
 
   std::vector<Actor*> mActors;
   std::vector<Actor*>mPendingActors;
+  
 
   bool mIsRuning;
   uint32_t mTickCount;
+  bool mUpdatingActors;
 
   void processInput();
   void updateGame();

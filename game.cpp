@@ -8,6 +8,7 @@ Game::Game()
   ,mPendingActors{}
   ,mIsRuning{true}
   ,mTickCount{0}
+  ,mUpdatingActors{ false }
 {
 }
 
@@ -29,6 +30,11 @@ void Game::run()
   {
 
   }
+}
+
+void Game::addActor(Actor* actor)
+{
+  mUpdatingActors ? mPendingActors.emplace_back(actor) : mActors.emplace_back(actor);
 }
 
 bool Game::initVideo()

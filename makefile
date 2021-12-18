@@ -1,5 +1,5 @@
 # *-* Makefile *-*
-OBJS = main.cpp
+OBJS = main.cpp game.cpp
 CC = g++
 COMPAILER_FLAGS = -std=c++17 -pedantic-errors -Wall -Werror -Weffc++ -Wextra -Wsign-conversion
 LINKER_FLAGS =

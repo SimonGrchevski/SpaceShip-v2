@@ -37,6 +37,22 @@ void Game::addActor(Actor* actor)
   mUpdatingActors ? mPendingActors.emplace_back(actor) : mActors.emplace_back(actor);
 }
 
+void Game::removeActor(Actor* actor)
+{
+  removeActor(actor, mActors);
+  removeActor(actor, mPendingActors);
+}
+
+void Game::removeActorFromVector(Actor* actor, std::vector<Actor*>& actors)
+{
+  auto iter{ std::find(actors.begin(), actors.end(), actor ) };
+    if(iter != actors.end() )
+    {
+      std::iter_swap(iter, actors.end() - 1);
+      actors.pop_back();
+    }
+}
+
 bool Game::initVideo()
 {
   if( SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO ) != 0)

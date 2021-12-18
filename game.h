@@ -27,6 +27,10 @@ class Game
   bool mIsRuning;
   uint32_t mTickCount;
 
+  void processInput();
+  void updateGame();
+  void generateOutput();
+
   bool loadData();
   bool initVideo();
   bool initWindow();

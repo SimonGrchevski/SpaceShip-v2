@@ -36,7 +36,7 @@ class Game
     void updateGame();
     void generateOutput();
 
-    void Game::removeActorFromVector(Actor* actor, std::vector<Actor*>& actors);
+    void removeActorFromVector(Actor* actor, std::vector<Actor*>& actors);
 
     bool loadData();
     bool initVideo();

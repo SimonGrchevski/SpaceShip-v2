@@ -1,4 +1,6 @@
 #include "game.h"
+#include "ship.h"
+#include <algorithm>
 #include <SDL2/SDL_image.h>
 
 Game::Game()
@@ -20,7 +22,7 @@ bool Game::initialize()
 
 bool Game::loadData()
 {
-  // loading the data
+  Ship* ship{ new Ship(this) };
   return true;
 }
 
@@ -39,8 +41,8 @@ void Game::addActor(Actor* actor)
 
 void Game::removeActor(Actor* actor)
 {
-  removeActor(actor, mActors);
-  removeActor(actor, mPendingActors);
+  removeActorFromVector(actor, mActors);
+  removeActorFromVector(actor, mPendingActors);
 }
 
 void Game::removeActorFromVector(Actor* actor, std::vector<Actor*>& actors)

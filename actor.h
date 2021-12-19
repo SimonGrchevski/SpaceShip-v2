@@ -25,6 +25,13 @@ class Actor
     void addComponent(Component* component);
     void removeComponent(Component* component);
 
+
+
+    Actor(const Actor&) = delete;
+    Actor(Actor&&) = delete;
+    Actor& operator=(const Actor&) = delete;
+    Actor& operator=(Actor&&) = delete;
+
   private:
     Game* mGame;
     std::vector<Component*> mComponents;

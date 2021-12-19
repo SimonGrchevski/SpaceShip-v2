@@ -1,12 +1,13 @@
 #include "actor.h"
 #include "game.h"
+#include <algorithm>
 
 Actor::Actor(Game* game)
   :mGame{game}
   ,mComponents{}
   ,mPosition{}
-  ,mScale{0.0}
-  ,mRotation{0,0}
+  ,mScale{0.0f}
+  ,mRotation{0.0f}
   ,mState{ Active }
 {
   mGame -> addActor(this);
@@ -21,7 +22,7 @@ Actor::~Actor()
 
 void Actor::removeComponent(Component* component)
 {
-  auto iter{ std::find( mComponents.begin(), mComponents.end(), component )}
+  auto iter{ std::find( mComponents.begin(), mComponents.end(), component )};
   if( iter != mComponents.end())
-    mComponent.erase(iter);
+    mComponents.erase(iter);
 }

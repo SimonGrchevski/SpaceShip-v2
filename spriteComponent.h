@@ -9,10 +9,16 @@ class SpriteComponent : public Component
   public:
     SpriteComponent(Actor* owner, int drawOrder);
 
-    const int getDrawOrder() const {return mDrawOrder; }
-    const int getTexWidth() const { return mTexWidth; }
-    const int getTexHeight() const { return mTexHeight; }
+    int getDrawOrder() const {return mDrawOrder; }
+    int getTexWidth() const { return mTexWidth; }
+    int getTexHeight() const { return mTexHeight; }
 
+
+
+    SpriteComponent(const SpriteComponent&) = delete;
+    SpriteComponent(SpriteComponent&&) = delete;
+    SpriteComponent& operator=(const SpriteComponent&) = delete;
+    SpriteComponent& operator=(SpriteComponent&&) = delete;
 
   private:
     Actor* mOwner;
@@ -20,6 +26,6 @@ class SpriteComponent : public Component
     SDL_Texture* mTexture;
     int mTexWidth;
     int mTexHeight;
-}
+};
 
 #endif

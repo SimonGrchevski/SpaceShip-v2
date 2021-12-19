@@ -1,5 +1,6 @@
 #include "game.h"
 #include "ship.h"
+#include "spriteComponent.h"
 #include <algorithm>
 #include <SDL2/SDL_image.h>
 
@@ -8,6 +9,7 @@ Game::Game()
   ,mRenderer{ nullptr }
   ,mActors{}
   ,mPendingActors{}
+  ,mSprites{}
   ,mIsRuning{true}
   ,mTickCount{0}
   ,mUpdatingActors{ false }

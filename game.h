@@ -4,6 +4,7 @@
 #include <SDL2/SDL.h>
 
 class Actor;
+class SpriteComponent;
 
 class Game
 {
@@ -14,6 +15,8 @@ class Game
 
     void addActor(Actor* actor);
     void removeActor(Actor* actor);
+
+    void addSprite(SpriteComponent* sprite);
 
     Game(const Game&) = delete;
     Game(Game&&) = delete;
@@ -26,6 +29,8 @@ class Game
 
     std::vector<Actor*> mActors;
     std::vector<Actor*>mPendingActors;
+
+    std::vector<SpriteComponent*> mSprites;
     
 
     bool mIsRuning;

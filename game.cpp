@@ -34,6 +34,18 @@ void Game::run()
   }
 }
 
+void Game::addSprite(SpriteComponent* sprite)
+{
+  const int order{ sprite -> getDrawOrder() };
+  auto iter{ mSprites.begin() };
+  for(; iter != mSprites.end(); ++iter )
+  {
+    if(order < (*iter)-> getDrawOrder() )
+      break;
+  }
+  mSprites.insert(iter,sprite);
+}
+
 void Game::addActor(Actor* actor)
 {
   mUpdatingActors ? mPendingActors.emplace_back(actor) : mActors.emplace_back(actor);
